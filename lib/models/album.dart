@@ -24,4 +24,17 @@ class Album {
       title: title ?? this.title,
     );
   }
+
+  @override
+  int get hashCode => userId.hashCode ^ id.hashCode ^ title.hashCode;
+
+  @override
+  bool operator ==(Object other) {
+    if (other is Album) {
+      if (other.userId == userId && other.id == id && other.title == title) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
