@@ -3,9 +3,12 @@ import 'package:friends_album/models/album.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:welltested_annotation/welltested_annotation.dart';
+
 final albumRepostioryProvider =
     Provider((ref) => AlbumRepository(http.Client()));
 
+@Welltested()
 class AlbumRepository {
   AlbumRepository(this.client);
   final http.Client client;

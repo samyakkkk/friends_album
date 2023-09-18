@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:friends_album/models/album.dart';
 import 'package:friends_album/providers/album_provider.dart';
+import 'package:friends_album/screens/photo_gallery_screen.dart';
 
 class AlbumScreen extends ConsumerStatefulWidget {
   const AlbumScreen({Key? key}) : super(key: key);
@@ -34,6 +35,10 @@ class _AlbumScreenState extends ConsumerState<AlbumScreen> {
                   title: Text(albums[index].title),
                   onTap: () {
                     // Navigate to album details page or do something on click
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return PhotoGallery(albumId: albums[index].id);
+                    }));
                   },
                 );
               },
